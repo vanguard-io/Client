@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import {Provider} from 'react-redux';
+import CpuMeterics from './components/CpuMeterics';
+import store from './store';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Navbar from 'react-bootstrap/Navbar'
+
+class App extends Component {
+
+  render() {
+    return (<Provider store={store}>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#home">
+          <img alt="" src="/logo.svg" width="30" height="30" className="d-inline-block align-top"/> {' Vanguard.io'}
+        </Navbar.Brand>
+      </Navbar>
+      <Container style={{marginTop: '1rem'}}>
+        <Row>
+          <Col>
+            <div className="App">
+              <CpuMeterics/>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </Provider>);
+  }
 }
 
 export default App;
