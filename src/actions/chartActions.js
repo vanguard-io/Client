@@ -1,5 +1,5 @@
 export const fetchData = (startDate, endDate, valueMin = 0, valueMax = 100, performanceOptimized = false) => dispatch => {
-  fetch(`https://onwarddb.ca/query?startDate=${startDate}&endDate=${endDate}&valueMin=${valueMin}&valueMax=${valueMax}`)
+  fetch(`https://onwarddb.ca/api/v1/query?startDate=${startDate}&endDate=${endDate}&valueMin=${valueMin}&valueMax=${valueMax}`)
     .then(response => response.json())
     .then(points => {
       let data = {
